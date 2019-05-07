@@ -32,9 +32,6 @@ class LinkedList
       raise Exception, "Index is out of bounds exception: can insert between #{0} and #{count}"
     end
 
-    if @head.nil?
-    end
-
     # insert at head - special condition
     if index == 0 && self.head.nil?
       return self.add(value)
