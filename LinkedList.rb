@@ -98,11 +98,11 @@ list.add(3)
 list.add(5)
 list.add_at(1, 11)
 
-puts list.print_list()
+# puts list.print_list()
 
 list.add_at(0, 13)
 
-puts list.print_list()
+# puts list.print_list()
 
 #puts list.get(0)
 #puts list.get(1)
