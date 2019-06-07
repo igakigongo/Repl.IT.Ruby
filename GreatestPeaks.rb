@@ -32,7 +32,7 @@ def noisy_neighbors(x, y, map)
     { x: x, y: y - 1 },
     { x: x + 1, y: y },
     { x: x, y: y + 1 },
-    { x: x - 1, y: y },
+    { x: x - 1, y: y }
   ].select(&valid_peak).each { |coord|
     coord[:v] = map[coord[:y]][coord[:x]] #note - this reading seems like it reverses x and y but hell no, it does not
   }
