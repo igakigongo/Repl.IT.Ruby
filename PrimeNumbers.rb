@@ -5,7 +5,8 @@ require 'set'
 def create_sieve(upto)
   a = (2..upto).map { |i| true }
 
-  a.each_with_index do |_, index|
+  a.each_with_index do |ele, index|
+    next if !ele
     start = index*2 + 2
     modified = false
     while start < a.length
