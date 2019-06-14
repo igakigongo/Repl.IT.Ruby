@@ -1,33 +1,28 @@
 require 'set'
 
-@set_of_primes = nil
+@set = nil
 
 def create_sieve(upto)
-  # p 'primes initialization called'
-  primes= Hash.new(false)
-  a = (2..upto).map { |i| {  k: i, v:true } }.to_a
-  a.each_with_index do |ele, index|
-    key = ele[:k]
-    start = index + key
-    # p "#{key} -> #{index} -> #{start}"
+  a = (2..upto).map { |i| true }
+
+  a.each_with_index do |_, index|
+    start = index*2 + 2
     modified = false
     while start < a.length
-      a[start][:v] = false unless (a[start][:v]).equal?false
+      a[start] = false if a[start]
       modified = true unless modified
-      # p "next: #{a[start]}"
-      start += key
+      start += index + 2
     end
 
     break unless modified
   end
-  a.select { |ele| ele[:v] }.map { |ele| ele[:k]}
+  a
 end
-
 
 def number_of_primes(arr)
   # call create sieve only once
-  @set_of_primes ||= create_sieve(10000).to_set
-  count = arr.count { |ele| @set_of_primes.member?(ele)}
+  @set = create_sieve(30) unless @set 
+  count = arr.count { |ele| !@set[ele-2].nil? && @set[ele-2] }
 end
 
 puts number_of_primes([2, 3, 5, 6, 9])
