@@ -1,17 +1,20 @@
+# frozen_string_literal: true
+
 require 'set'
 
 @set = nil
 
 def create_sieve(upto)
-  a = (2..upto).map { |i| true }
+  a = (2..upto).map { |_i| true }
 
   a.each_with_index do |ele, index|
-    next if !ele
-    start = index*2 + 2
+    next unless ele
+
+    start = index * 2 + 2
     modified = false
     while start < a.length
       a[start] = false if a[start]
-      modified = true unless modified
+      modified ||= true
       start += index + 2
     end
 
@@ -22,8 +25,8 @@ end
 
 def number_of_primes(arr)
   # call create sieve only once
-  @set = create_sieve(30) unless @set 
-  count = arr.count { |ele| !@set[ele-2].nil? && @set[ele-2] }
+  @set ||= create_sieve(30)
+  count = arr.count { |ele| !@set[ele - 2].nil? && @set[ele - 2] }
 end
 
 puts number_of_primes([2, 3, 5, 6, 9])
