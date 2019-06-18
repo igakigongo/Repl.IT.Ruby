@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def sum(number)
   number < 2 ? 1 : number + sum(number - 1)
 end

@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'set'
 
 @set = nil
 
 def create_sieve(upto)
-  a = (2..upto).map { |i| true }
+  a = (2..upto).map { |_i| true }
 
   a.each_with_index do |ele, index|
     next if !ele
@@ -12,7 +14,7 @@ def create_sieve(upto)
     modified = false
     while start < a.length
       a[start] = false if a[start]
-      modified = true unless modified
+      modified ||= true
       start += index + 2
     end
 

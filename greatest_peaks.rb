@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Peaks By Sets - Get greatest peaks using
 class PeaksBySets
   attr_reader :map, :max_x, :max_y, :sets, :valid_point
