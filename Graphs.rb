@@ -1,6 +1,7 @@
 def path(hash, key, visited)
   visited.push(key)
   return visited if key.equal? 4
+
   path(hash, hash[key].first, visited)
 end
 

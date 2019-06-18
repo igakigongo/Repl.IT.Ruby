@@ -13,6 +13,6 @@ def tower(n, from, to, aux)
   tower(n - 1, aux, to, from)
 end
 
-#hanoi_steps(2)
-#hanoi_steps(3)
-#hanoi_steps(4)
+# hanoi_steps(2)
+# hanoi_steps(3)
+# hanoi_steps(4)

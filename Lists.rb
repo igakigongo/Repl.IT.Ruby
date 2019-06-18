@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# primary data type - a node in a graph/tree/linkedlist
 class Node
   attr_accessor :value, :next_node
 
@@ -7,32 +10,27 @@ class Node
   end
 end
 
+# primary data type - linked list implementation
+# internal Data Structure is a Node
 class LinkedList
-  # setup head and tail
   attr_accessor :head, :tail
 
   def add(number)
-    $node = Node.new(number)
+    node = Node.new(number)
     if @head.nil?
-      @head = $node
+      @head = node
     else
-      @tail.next_node = $node
+      @tail.next_node = node
     end
-    @tail = $node
+    @tail = node
   end
 
   def get(index)
-    $current = @head
-    while index > 0 && $current
-      $current = $current.next_node
+    current = @head
+    while index.positive? && current
+      current = current.next_node
       index -= 1
     end
-    $current&.value
+    current&.value
   end
 end
-
-list = LinkedList.new
-list.add(3)
-list.add(5)
-
-puts list.get(1)

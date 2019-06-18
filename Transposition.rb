@@ -16,7 +16,7 @@ def swap_chars(s, left, right)
   s[right] = $temp
 end
 
-# execute 
+# execute
 def transpose(string)
   index = 0
   len = string.length

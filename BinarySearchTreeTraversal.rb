@@ -7,11 +7,11 @@ class Node
   end
 end
 
-#root must be a node - it can be nullable
-#data must be the value to insert into the node
+# root must be a node - it can be nullable
+# data must be the value to insert into the node
 def insert_bst(root, data)
   if root.nil?
-    root = Node.new(data) 
+    root = Node.new(data)
     return root
   end
 
