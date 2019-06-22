@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 def sum_left(array, index, sum)
   k = index * 2 + 1
-  return k > array.length ? sum : sum + sum_left(array, k, array[index])
+  k > array.length ? sum : sum + sum_left(array, k, array[index])
 end
 
 def leftmost_nodes_sum(array)

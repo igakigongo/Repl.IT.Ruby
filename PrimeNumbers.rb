@@ -8,7 +8,7 @@ def create_sieve(upto)
   a = (2..upto).map { |_i| true }
 
   a.each_with_index do |ele, index|
-    next if !ele
+    next unless ele
 
     start = index * 2 + 2
     modified = false
@@ -25,7 +25,7 @@ end
 
 def number_of_primes(arr)
   # call create sieve only once
-  @set = create_sieve(30) unless @set
+  @set ||= create_sieve(30)
   count = arr.count { |ele| !@set[ele - 2].nil? && @set[ele - 2] }
 end
 
