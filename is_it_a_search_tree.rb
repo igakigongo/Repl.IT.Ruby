@@ -62,5 +62,4 @@ module SearchTree
 
         private :build_tree, :internal_in_order, :internal_post_order, :internal_pre_order
     end
-
 end
