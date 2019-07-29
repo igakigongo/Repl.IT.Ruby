@@ -8,7 +8,7 @@ def tree_height(tree_as_list)
   $s = 0
 
   loop do
-    $s += 2 ** $p
+    $s += 2**$p
     break if $s >= $l
 
     $p += 1
@@ -24,7 +24,7 @@ def tree_height_with_stack(tree_as_list)
   $start = 0
   $p = 0
   while $start < tree_as_list.length
-    $take = 2 ** $p
+    $take = 2**$p
     $count = 0
 
     $innerStack = Stack2.new
@@ -38,7 +38,7 @@ def tree_height_with_stack(tree_as_list)
     $start += 1
   end
 
-  #let inspect these stacks - top most value must be the last value in the array
+  # let inspect these stacks - top most value must be the last value in the array
   puts "Top most value: #{$stack.list.head.value.list.head.value}"
   $p
 end

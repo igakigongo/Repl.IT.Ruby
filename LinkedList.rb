@@ -104,12 +104,12 @@ list.add_at(0, 13)
 
 # puts list.print_list()
 
-#puts list.get(0)
-#puts list.get(1)
-#puts list.get(2)
+# puts list.get(0)
+# puts list.get(1)
+# puts list.get(2)
 # => 11
 
-#puts list.get(3)
+# puts list.get(3)
 # => 5
 
-#list.remove(1)
+# list.remove(1)
