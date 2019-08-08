@@ -1,12 +1,8 @@
-def dfs_helper(graph, node = 0, visited = [])
+def depth_first_search(graph, node = 0, visited = [])
   return if visited.include?(node)
   visited << node
-  graph[node].each { |n| dfs_helper(graph, n, visited) }
+  graph[node].each { |n| depth_first_search(graph, n, visited) }
   visited
-end
-
-def depth_first_search(graph)
-  dfs_helper(graph)
 end
 
 p depth_first_search({
