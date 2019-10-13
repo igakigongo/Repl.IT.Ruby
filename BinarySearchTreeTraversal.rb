@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Node
   attr_reader :data
   attr_accessor :left, :right
@@ -7,18 +9,18 @@ class Node
   end
 end
 
-#root must be a node - it can be nullable
-#data must be the value to insert into the node
+# root must be a node - it can be nullable
+# data must be the value to insert into the node
 def insert_bst(root, data)
   if root.nil?
-    root = Node.new(data) 
+    root = Node.new(data)
     return root
   end
 
   parent = nil
   current = root
 
-  while !current.nil?
+  until current.nil?
     parent = current
     current = data <= current.data ? current.left : current.right
   end
@@ -34,14 +36,12 @@ end
 
 def binary_search_tree(array)
   root = nil
-  while !array.empty?
-    root = insert_bst(root, array.shift)
-  end
+  root = insert_bst(root, array.shift) until array.empty?
   pre_order(root)
 end
 
 def pre_order(node)
-  node.nil? ? "" : "#{node.data} #{pre_order(node.left)}#{pre_order(node.right)}"
+  node.nil? ? '' : "#{node.data} #{pre_order(node.left)}#{pre_order(node.right)}"
 end
 
 a = [8, 3, 10, 1, 6, 14, 4, 7, 13]

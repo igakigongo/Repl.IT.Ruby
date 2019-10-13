@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 load 'LinkedList.rb'
 
 # Start with your code from LinkedList challenge.

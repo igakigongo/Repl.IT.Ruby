@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Start with your code from last challenge.
 class Node
   attr_accessor :next_node, :value
@@ -28,20 +30,20 @@ class LinkedList
 
   def add_at(index, value)
     # if index is between 0 and count of current nodes - then we can always insert into the node
-    if !index.between?(0, count)
-      raise Exception, "Index is out of bounds exception: can insert between #{0} and #{count}"
+    unless index.between?(0, count)
+      raise Exception, "Index is out of bounds exception: can insert between 0 and #{count}"
     end
 
     # insert at head - special condition
-    if index == 0 && self.head.nil?
-      return self.add(value)
-    elsif index == 0 && !self.head.nil?
+    if index == 0 && head.nil?
+      return add(value)
+    elsif index == 0 && !head.nil?
       self.count += 1
-      return self.head = Node.new(value, self.head)
+      return self.head = Node.new(value, head)
     end
 
     $new = Node.new(value)
-    $prev = self.head
+    $prev = head
     while index > 1 && $prev
       $prev = $prev.next_node
       index -= 1
@@ -78,15 +80,15 @@ class LinkedList
     end
   end
 
-  def print_list()
-    node = self.head
-    output = ""
+  def print_list
+    node = head
+    output = ''
 
     until node.next_node.nil?
       output += "#{node.value}, "
       node = node.next_node
     end
-    output += "#{node.value}"
+    output += node.value.to_s
   end
 end
 
@@ -104,12 +106,12 @@ list.add_at(0, 13)
 
 # puts list.print_list()
 
-#puts list.get(0)
-#puts list.get(1)
-#puts list.get(2)
+# puts list.get(0)
+# puts list.get(1)
+# puts list.get(2)
 # => 11
 
-#puts list.get(3)
+# puts list.get(3)
 # => 5
 
-#list.remove(1)
+# list.remove(1)

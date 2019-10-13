@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'benchmark'
 
 # find next n character from a given index in a string
@@ -16,7 +18,7 @@ def swap_chars(s, left, right)
   s[right] = $temp
 end
 
-# execute 
+# execute
 def transpose(string)
   index = 0
   len = string.length

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Node
   attr_accessor :value, :next_node
 
@@ -16,13 +18,17 @@ class Stack
 
   def push(num)
     @min_prev = num && @min_value = num if @head.nil?
-    @min_prev, @min_value = @min_value, num if num < @min_value && !@head.nil?
+    if num < @min_value && !@head.nil?
+      @min_prev = @min_value
+      @min_value = num
+    end
     @head = Node.new(num, @head)
   end
 
   def pop
     @head.next_node.nil? ? @min_prev = nil : @min_value = @min_prev
-    temp, @head = @head&.value, @head.next_node
+    temp = @head&.value
+    @head = @head.next_node
     temp
   end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Node
   attr_reader :data
   attr_accessor :left, :right
@@ -18,9 +20,7 @@ def array_to_tree(array, i)
 end
 
 def pre_order(node)
-  if node == nil
-    return ""
-  end
+  return '' if node.nil?
 
   result = "#{node.data} "
   result += pre_order(node.left)
@@ -28,7 +28,7 @@ def pre_order(node)
 end
 
 def post_order(node)
-  node.nil? ? "" : "#{post_order(node.left)}#{post_order(node.right)} #{node.data}"
+  node.nil? ? '' : "#{post_order(node.left)}#{post_order(node.right)} #{node.data}"
 end
 
 tree = array_to_tree([10, 1, 2, 3, 4, 5, 6], 0)

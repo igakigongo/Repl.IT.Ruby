@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def move(s, g)
   aux = (1..3).find { |d| d != s && d != g }
   "#{s}->#{aux} #{s}->#{g} #{aux}->#{g}"

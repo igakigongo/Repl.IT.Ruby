@@ -1,12 +1,15 @@
+# frozen_string_literal: true
+
 def merge_sort(array1, array2)
   out = []
   until array1.empty? && array2.empty?
-    e1, e2 = array1.first, array2.first
-    if e1.nil? || e2.nil?
-      out << (e1.nil? ? array2.shift : array1.shift)
-    else
-      out << (e1 < e2 ? array1.shift : array2.shift)
-    end
+    e1 = array1.first
+    e2 = array2.first
+    out << if e1.nil? || e2.nil?
+             (e1.nil? ? array2.shift : array1.shift)
+           else
+             (e1 < e2 ? array1.shift : array2.shift)
+           end
   end
   out
 end
